@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional logic - Betinget logikk</title>
+</head>
+<body>
+    <h2>Er du gammel nok til å kjøre bil?</h2>
+    <p id="carmessage"></p>
+
+    <script>
+        const age = 18
+        const passed = true
+        // if test for å sjekke om vi er gamle nok
+        if(age >=18 && passed == true) {
+            document.getElementById("carmessage").innerHTML = "Ja"
+        } else{
+            document.getElementById("carmessage"). innerHTML = "Nei"
+        }
+    </script>
+</body>
+</html>
