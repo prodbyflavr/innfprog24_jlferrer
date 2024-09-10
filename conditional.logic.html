@@ -10,6 +10,8 @@
     <p id="carmessage"></p>
 <h2>Kan spilleren åpne døren?</h2>
 <p id="doormessage">Velg dør for å sjekke</p>
+<h2>Kan jeg pensjonere meg?</h2>
+<p id="retired"></p>
 
     <script>
         const age = 18
@@ -35,6 +37,15 @@
             } else {
                 doormsg.innerHTML = "Nei"
             }
+        }
+
+        //Sjekk av mulig pensjonsalder:
+        if(age === 62 && age < 67)(
+            document.getElementById("retire").innerHTML = "Du kan gå av med AFP."
+        ) else if(age >= 67){
+            document.getElementById("retire").innerHTML = "Du kan gå av med full pensjon."
+        } else {
+            document.getElementById("retire").innerHTML = `Du kan gå av med AFP om ${62 - age}, og full pensjon om ${67 - age} år.`
         }
     </script>
 </body>
