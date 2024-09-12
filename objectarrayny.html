@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object cheat sheet</title>
+</head>
+<body>
+    <ul id="profiles"></ul>
+
+    <script>
+        const lecturers = [
+            {
+                personname: "Marius Akerbæk",
+                office: "D1-016",
+                email: "toremake@hiof.no",
+                birthyear: 1983,
+                courses: ["Innføring i programmering", "Kommunikasjonsdesign", "UI Designprosjekt", "Utvikling av interaktive nettsteder"]
+            },
+            {
+                personname: "Ann-Charlott Karlsen",
+                office: "D1-062",
+                email: "ackarlse@hiof.no",
+                birthyear: 1992,
+                courses: ["Webutvikling", "Utvikling av interaktive nettsteder"]
+            },
+            {
+                personname: "Ole Edvard Ørebæk",
+                office: "D1-061A",
+                email: "oledvo@hiof.no",
+                birthyear: 1993,
+                courses: ["Innføring i datasikkerhet"]
+            },
+            {
+                personname: "Daniela Blauhut",
+                office: "D1-015",
+                email: "danielb@hiof.no",
+                birthyear: 1977,
+                courses: ["Designmetoder", "UI Designprosjekt"]
+            }
+        ]
+
+            /*
+                vi skal skrive ut hver forelser i arrayen som et listepunkt <li>
+                    vi mp gp gjennom hele arrayen: map
+                    Når vi mapper må vi mellomlagre element i en variabel: lecturer
+                    For hver lecturer, må vi legge til en <li> i <ul id = profilen> 
+            */
+           lecturers.map(lecturer => console.log(lecturer))
+
+        //document.getElementById("contactinfo").innerHTML = ${lecturer.personname} sitter på kontor ${lecturer.office}. Epost: ${lecturer.email}. Favorittkurset hans er ${lecturer.courses[0]}.
+
+        console.log(lecturers)
+    </script>
+</body>
+</html>
