@@ -46,7 +46,12 @@
                     Når vi mapper må vi mellomlagre element i en variabel: lecturer
                     For hver lecturer, må vi legge til en <li> i <ul id = profilen> 
             */
-           lecturers.map(lecturer => console.log(lecturer))
+           lecturers.map(lecturer => document.getElementById("profiles").innerHTML += `<li>${lecturer.personname}
+            
+            <ul>
+
+                </ul>
+            </li>`)
 
         //document.getElementById("contactinfo").innerHTML = ${lecturer.personname} sitter på kontor ${lecturer.office}. Epost: ${lecturer.email}. Favorittkurset hans er ${lecturer.courses[0]}.
 
