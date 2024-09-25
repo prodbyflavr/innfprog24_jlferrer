@@ -99,7 +99,8 @@
 
 //Oppgave 3, Settimeout funksjon fungerer, sjekk line 238.
 
-//Oppgave 4 
+//Oppgave 4  Legge til gullfargen på brikkene når spilleren vinner
+// dette er endret på line 327 og 364.
 
 
         /* For å forstå hvorfor vi har celle-IDene 0 - 8 i HTML-koden over:
@@ -274,6 +275,9 @@
 
         function sjekkVinner() {
             var rundenVunnet = false;
+
+            var vinnendeRuter = [];
+
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
             // Dette gjør vi ved å gå gjennom alle vinnerkombinasjonene, og
             //sjekke om brikkene på spillbrettet er like ved indexene til vinnerkombinasjonene:
@@ -303,7 +307,6 @@
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) {
 
-                
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
                 //Gjør restart spill-knappen synlig
@@ -314,7 +317,19 @@
                 //Sett spillstatus til false, slik at ingen spillere får plassere
                 //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
 
+                //Oppgave 4 --
+                //Jeg vil bare ha gullfarge på de cellene/brikkene som er gull, 
+                //da endre jeg bare color på vinnerkomboplass 1,2,3 til gull når fuction er på sjekkvinner
+                //Spurte også ChatGPT om innspill
+
+                document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700"; // Sett farge på vinnercellen 1
+                document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700"; // Sett farge på vinnercellen 2
+                document.getElementById("celle" + vinnerKomboPlass3).style.color = "#FFD700"; // Sett farge på vinnercellen 3
+
                 spillStatus = false;
+
+   
+    
             }
         }
 
@@ -346,6 +361,15 @@
             player = 1;
             playermark = "X";
             // 4)
+
+            //Oppgave 4 --- 
+        // siden brikkene ikke endrer seg fra da dem ble gule, må vi endre dem tilbake til vanlig etter restartgame
+        //Tilbakestill fargen på alle celler til hvit (eller standard farge). Dette har jeg spurt ChatGPT om. 
+           for (var i = 0; i < 9; i++) {
+           document.getElementById("celle" + i).style.color = "#fff"; // Den går gjennom alle cellene på spillbrettet, altså fra celle0 til celle8
+           //for hver celle, settes tekstfargen tilbake til hvit. Dette er jo fordi brikkene var gule fra forrige runde. 
+            }
+
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
         }
     </script>
