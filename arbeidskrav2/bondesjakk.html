@@ -67,6 +67,18 @@
             color: white;
             cursor: pointer;
         }
+
+        #antallspill {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 600px;
+    font-size: 1.5em;
+    background-color: #fff;
+    color: #34495e;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #2c3e50;
+}
     </style>
 
 </head>
@@ -84,6 +96,9 @@
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
     </section>
+    <!--Oppgave 5-->
+    <section id="antallspill">Antall spill spilt: <span id="antallSpillDisplay"></span></section>
+    <!---->
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
 
     <script>
@@ -106,6 +121,12 @@
 
 //Oppgave 4  Legge til gullfargen på brikkene når spilleren vinner
 // dette er endret på line ca 327 og 364. Markert med "Oppgave 4"
+
+//Oppgave 5 Lagt til en section id som heter antallspill og med en span som heter span id= "antallSpillDisplay".
+//Lagt til også styling for section antallspill. Se over markert med oppgave 5.
+//Lagt til var for antallspill = 0. 
+//Til slutt lagt til kode på line 406. Dette gjør at hvor hver gang spillet restarter, 
+//så oppdateres span id ="antallSpillDisplay"
 
 
         /* For å forstå hvorfor vi har celle-IDene 0 - 8 i HTML-koden over:
@@ -141,8 +162,8 @@
         //Jeg endret kolon til dette ";" etter som jeg så at det andre var også ";".
         document.getElementById("playermark").innerHTML = playermark;
 
-        //Så lager vi en teller for å se hvor mange spill vi har spilt:
-        var antallSpill = 1;
+        //Oppgave 5, lage en variabel for antallSpill, som er 0 først.
+        var antallSpill = 0;
 
         //Vi må også ha en oversikt over hvilke kombinasjoner av brikkeplasseringer 
         //(indexer i spillerBrikker-arrayen)
@@ -329,6 +350,7 @@
                 //Jeg vil bare ha gullfarge på de cellene/brikkene som er gull, 
                 //da endrer jeg bare color på vinnerkomboplass 1,2,3 til gull når fuction er på rundenVunnet === true
                 //Spurte også ChatGPT om innspill
+                //Som jeg forstår er fordi vi vil at celle og de som er i vinnerKomboPlass1,2 og 3 bli satt gullfarget på.
 
                 document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700"; // Sett farge på vinnercellen 1
                 document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700"; // Sett farge på vinnercellen 2
@@ -380,7 +402,12 @@
             }
 
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
-        }
+
+            //oppgave 5, med "antallspill", for hver gang gamet restarer, oppdaterer antallSpillDisplay seg 
+            antallSpill++;
+    document.getElementById("antallSpillDisplay").innerHTML = antallSpill;
+}  
+        
     </script>
 </body>
 
